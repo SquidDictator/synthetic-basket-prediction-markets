@@ -10,7 +10,7 @@ The Premier League Top 4 race provides a natural example of interdependent proba
 
 This project explores whether temporary inconsistencies arise in these relationships. A simple synthetic basket is constructed from peer teams, and deviations from this basket are analysed over time.
 
-The goal is not to build a production trading system, but to test whether these deviations behave like mean-reverting noise or reflect differences in how information is incorporated into the market.
+The goal is not to build a production trading system, but to investigate whether these deviations contain systematic structure or instead reflect differences in the speed and manner in which information is incorporated across related contracts.
 
 ---
 
