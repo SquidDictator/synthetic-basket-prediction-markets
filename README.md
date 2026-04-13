@@ -93,7 +93,7 @@ While teams compete for the same outcomes, deviations in probabilities may refle
   The approach assumes teams are broadly comparable in quality. In reality, form changes, injuries, or managerial shifts can break this relationship.
 
 * **End-of-season effects**
-  As outcomes become certain, probabilities converge to 0% or 100%, where mean-reversion logic no longer applies.
+  As outcomes become more certain, probability dynamics become increasingly dominated by boundary effects and information convergence, altering the structure of cross-sectional relationships between contracts.
 
 * **Liquidity variation**
   Different contracts may have varying depth and execution quality, which is not fully captured in the model.
