@@ -79,14 +79,6 @@ Performance is not uniform across teams, suggesting that the observed behaviour 
 
 ---
 
-## Key Insight
-
-Interdependence between contracts does not necessarily imply mean reversion.
-
-While teams compete for the same outcomes, deviations in probabilities may reflect new information or asynchronous updates rather than temporary mispricing. This suggests that observed profitability may be driven by timing effects or structural asymmetry, rather than a consistent statistical relationship.
-
----
-
 ## Limitations
 
 * **Assumption of similar teams**
