@@ -52,15 +52,15 @@ Suppose the market probabilities are:
 
 The synthetic basket for Aston Villa is:
 
-\[
+```math
 \text{Basket} = \frac{50\% + 46\%}{2} = 48\%
-\]
+```
 
 The relative spread is:
 
-\[
+```math
 \text{Spread} = 40\% - 48\% = -8\%
-\]
+```
 
 A negative spread does not automatically mean Aston Villa is mispriced. Villa may normally trade below the other two teams because of differences in team quality, fixtures, form, or market expectations.
 
@@ -99,23 +99,23 @@ This raises two questions:
 
 For each target team, a synthetic basket is constructed as the equal-weight average probability of the remaining two teams.
 
-For target team \(i\):
+For target team $i$:
 
-\[
+```math
 B_{i,t} = \frac{P_{j,t} + P_{k,t}}{2}
-\]
+```
 
 where:
 
-- \(P_{i,t}\) is the target team's probability at time \(t\)
-- \(P_{j,t}\) and \(P_{k,t}\) are the probabilities of the two peer teams
-- \(B_{i,t}\) is the synthetic basket probability
+- $P_{i,t}$ is the target team's probability at time $t$
+- $P_{j,t}$ and $P_{k,t}$ are the probabilities of the two peer teams
+- $B_{i,t}$ is the synthetic basket probability
 
 The relative spread is defined as:
 
-\[
+```math
 S_{i,t} = P_{i,t} - B_{i,t}
-\]
+```
 
 A positive spread means the target is priced above the basket.
 
@@ -131,24 +131,24 @@ Instead, the strategy compares the spread with its own recent behaviour.
 
 The spread is standardised using a rolling mean and rolling standard deviation:
 
-\[
+```math
 z_t = \frac{S_t - \mu_t}{\sigma_t}
-\]
+```
 
 where:
 
-- \(S_t\) is the current relative spread
-- \(\mu_t\) is the rolling mean of the spread
-- \(\sigma_t\) is the rolling standard deviation
-- \(z_t\) measures how unusual the current spread is relative to its recent history
+- $S_t$ is the current relative spread
+- $\mu_t$ is the rolling mean of the spread
+- $\sigma_t$ is the rolling standard deviation
+- $z_t$ measures how unusual the current spread is relative to its recent history
 
 The rolling mean and standard deviation are shifted by one interval so that the current observation is not included in the historical reference window.
 
 The implemented signal rules are:
 
-- **\(z_t \leq -1.5\):** long the target and short the basket
-- **\(z_t \geq +1.5\):** short the target and long the basket
-- **\(-1.5 < z_t < +1.5\):** no position
+- **$z_t \leq -1.5$:** long the target and short the basket
+- **$z_t \geq +1.5$:** short the target and long the basket
+- **$-1.5 < z_t < +1.5$:** no position
 
 Because the signal is recalculated independently at each interval, an existing position is closed as soon as the z-score moves back inside the entry band.
 
@@ -158,25 +158,25 @@ Because the signal is recalculated independently at each interval, an existing p
 
 The backtest calculates profit and loss from changes in the relative spread:
 
-\[
+```math
 \text{P\&L} =
 \text{Position}
 \times
 \left(S_{\text{exit}} - S_{\text{entry}}\right)
 \times
 \text{Stake per point}
-\]
+```
 
 For a long-spread position:
 
-\[
+```math
 \Delta S =
 \Delta P_{\text{target}}
 -
 \frac{1}{2}\Delta P_j
 -
 \frac{1}{2}\Delta P_k
-\]
+```
 
 This is economically equivalent to:
 
@@ -193,7 +193,7 @@ The backtest models this exposure through the spread directly. It does not separ
 
 Signals are shifted forward by one period.
 
-A signal calculated using information available at time \(t\) is therefore executed at time \(t+1\).
+A signal calculated using information available at time $t$ is therefore executed at time $t+1$.
 
 This prevents the model from using the same historical price movement both to generate a signal and to execute the resulting position.
 
